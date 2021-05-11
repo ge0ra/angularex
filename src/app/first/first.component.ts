@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-first',
@@ -8,14 +8,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class FirstComponent {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() { }
 
   customLabel = 'write something in the input field to change this label';
-  jobForm = this.formBuilder.group({
-    name: ''
-  });
-
-  onSubmit(): void {
-    this.customLabel = this.jobForm.controls.name.value;
-  }
 }

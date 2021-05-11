@@ -15,10 +15,10 @@
     </div>
   </div>
 
-  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+  <div>
     <mat-form-field>
       <mat-label for="name">Please modify this input field</mat-label>
-      <input matInput placeholder="New text..." id="name" type="text" formControlName="name" [(ngModel)]="customLabel">
+      <input matInput placeholder="New text..." type="text" ngModel #name [(ngModel)]="customLabel">
     </mat-form-field>
-  </form>
+  </div>
 </div>
