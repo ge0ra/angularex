@@ -14,6 +14,11 @@ import { MatInputModule } from '@angular/material/input';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { CustomValidationPipe } from './custom-validation.pipe';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import {TaskModule} from './task/task.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,10 @@ import { CustomValidationPipe } from './custom-validation.pipe';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    StoreModule.forRoot(reducers, {metaReducers}),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,6 @@
+<mat-form-field>
+  <mat-label for="name">Add a new task</mat-label>
+  <input matInput placeholder="Task title..." type="text" #box>
+</mat-form-field>
+<br/>
+<button mat-raised-button color="primary" (click)="addTask(box.value)">Add</button>
