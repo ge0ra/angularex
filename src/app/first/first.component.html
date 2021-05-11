@@ -1,0 +1,24 @@
+<div class="md-margin md-padding">
+
+  <p>{{ customLabel }}</p>
+
+  <div *ngIf="(customLabel | customValidation) != 0"
+       class="alert alert-danger">
+    <div *ngIf="(customLabel | customValidation) == 1">
+      <p>A number is required.</p>
+    </div>
+    <div *ngIf="(customLabel | customValidation) == 2">
+      <p>A minimum length of 3 is required.</p>
+    </div>
+    <div *ngIf="(customLabel | customValidation) == 3">
+      <p>The inclusion of a "9" is required.</p>
+    </div>
+  </div>
+
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label for="name">Please modify this input field</mat-label>
+      <input matInput placeholder="New text..." id="name" type="text" formControlName="name" [(ngModel)]="customLabel">
+    </mat-form-field>
+  </form>
+</div>
